@@ -7,6 +7,213 @@
     <link rel="stylesheet" href="style.css">
     <!-- FontAwesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #0b0d10;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-glow: rgba(212, 175, 55, 0.25);
+            --text-color: #f0f0f0;
+            --text-secondary: #9a9a9a;
+            --border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Profile Header Style */
+        .profile-card {
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-img-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            object-fit: cover;
+            box-shadow: 0 0 25px var(--gold-glow);
+        }
+
+        .profile-card h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .dob {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* Section Boxes */
+        .section-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 25px;
+            transition: border-color 0.3s ease;
+        }
+
+        .section-box:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.2);
+            padding-bottom: 10px;
+        }
+
+        /* Document Items */
+        .doc-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .doc-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .doc-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .doc-icon {
+            font-size: 20px;
+            color: var(--gold);
+        }
+
+        .doc-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn {
+            background: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-secondary);
+        }
+
+        .view-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .download-btn {
+            background: var(--gold);
+            color: #0b0d10;
+            border: 1px solid var(--gold);
+        }
+
+        .download-btn:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 550px) {
+            .doc-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .doc-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,13 +223,13 @@
             <div class="profile-img">
                 <img src="your-photo.jpg" alt="Profile Photo">
             </div>
-            <h1>உங்கள் பெயர்</h1>
+            <h1>R.Arunjan</h1>
             <p class="dob"><i class="fa-regular fa-calendar-days"></i> DOB: DD/MM/YYYY</p>
         </div>
 
         <!-- SECTION 1: நீங்களே பெயர் வைக்கலாம் -->
         <div class="section-box">
-            <h2 class="section-title"><i class="fa-solid fa-folder-open"></i> SECTION NAME 1 (எ.கா: Personal Documents)</h2>
+            <h2 class="section-title"><i class="fa-solid fa-folder-open"></i>Mes bulltins</h2>
             
             <div class="doc-grid">
                 <!-- Document Item -->
