@@ -52,7 +52,6 @@
                         inset 0 1px 1px rgba(255, 255, 255, 0.1);
         }
 
-        /* Profile Header Style */
         .profile-card {
             text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -96,7 +95,6 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* Section Boxes */
         .section-box {
             background: rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -123,27 +121,42 @@
             padding-bottom: 10px;
         }
 
-        /* Document Items */
         .doc-grid {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 18px;
+        }
+
+        .doc-card-with-preview {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .preview-box {
+            width: 100%;
+            height: 180px;
+            background: #000;
+        }
+
+        .preview-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .doc-card {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.03);
             padding: 14px 18px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             transition: all 0.3s ease;
         }
 
         .doc-card:hover {
             background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-2px);
         }
 
         .doc-info {
@@ -164,7 +177,6 @@
             gap: 10px;
         }
 
-        /* Buttons */
         .btn {
             text-decoration: none;
             padding: 8px 14px;
@@ -201,7 +213,6 @@
             box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
         }
 
-        /* Mobile Responsive */
         @media (max-width: 550px) {
             .doc-card {
                 flex-direction: column;
@@ -227,275 +238,279 @@
             <p class="dob"><i class="fa-regular fa-calendar-days"></i> DOB: 11/02/2011</p>
         </div>
 
-        <!-- Bulletin Section -->
+        <!-- Section 1: Bulletins -->
         <div class="section-box">
-            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Bulletin</h2>
+            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Bulletins Scolaires</h2>
             
             <div class="doc-grid">
                 <!-- 3ème -->
                 <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>3ème - Trimestre 1</span>
+                    <div class="preview-box">
+                        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/3eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/3eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>3ème - Trimestre 1</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/3eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/3eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
 
-                    <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>3ème - Trimestre 2</span>
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/3eme-t2.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/3eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/3eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>3ème - Trimestre 2</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/3eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/3eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
-<div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>                        
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>3ème - Trimestre 3</span>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/3eme-t3.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/3eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/3eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>3ème - Trimestre 3</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/3eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/3eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 4ème -->
-    <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>4ème - Trimestre 1</span>
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/4eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/4eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/4eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-
-        <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>4ème - Trimestre 2</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/4eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/4eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>4ème - Trimestre 1</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/4eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/4eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
 
-            <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>4ème - Trimestre 3</span>
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/4eme-t2.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/4eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/4eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>4ème - Trimestre 2</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/4eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/4eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/4eme-t3.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>4ème - Trimestre 3</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/4eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/4eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 5ème -->
                 <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>5ème - Trimestre 1</span>
+                    <div class="preview-box">
+                        <iframe src="docs/5eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/5eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/5eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-
-                    <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>5ème - Trimestre 2</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/5eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/5eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-
-                        <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-                <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>5ème - Trimestre 3</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/5eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/5eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!-- Bulletin Section -->
-        <div class="section-box">
-            <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Bulletin</h2>
-
-            <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-            <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>Assr 1</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/assr1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/assr1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>5ème - Trimestre 1</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/5eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/5eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-            <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>Assr 2</span>
+                    <div class="preview-box">
+                        <iframe src="docs/5eme-t2.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/assr2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/assr2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-
-                    <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-            <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>PIX</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/pix.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/pix.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>5ème - Trimestre 2</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/5eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/5eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
 
-                        <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-            <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>Kangourou des maths 2026</span>
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/5eme-t3.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
                     </div>
-                    <div class="doc-actions">
-                        <a href="doc/kang2026.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/kang2026.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-
-<div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-            <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>Kangourou des maths 2025</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/kang2025.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/kang2025.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-
-    <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-            <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>kangourou des maths 2024</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/kang2024.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/kang2024.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
-                    </div>
-                </div>
-
-        <div class="doc-card-with-preview">
-    <!-- PDF Frame Preview -->
-    <div class="preview-box">
-        <iframe src="docs/3eme-t1.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="180px"></iframe>
-    </div>
-            <div class="doc-card">
-                    <div class="doc-info">
-                        <i class="fa-solid fa-file-pdf doc-icon"></i>
-                        <span>kangourou des maths 2023</span>
-                    </div>
-                    <div class="doc-actions">
-                        <a href="doc/kang2023.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
-                        <a href="doc/kang2023.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>5ème - Trimestre 3</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/5eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/5eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Section 2: Certificats & Concours -->
+        <div class="section-box">
+            <h2 class="section-title"><i class="fa-solid fa-award"></i> Certificats & Concours</h2>
+
+            <div class="doc-grid">
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/assr1.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>ASSR 1</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/assr1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/assr1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/assr2.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>ASSR 2</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/assr2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/assr2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/pix.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>Certificat PIX</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/pix.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/pix.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/kang2026.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>Kangourou des maths 2026</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/kang2026.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/kang2026.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/kang2025.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>Kangourou des maths 2025</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/kang2025.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/kang2025.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/kang2024.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>Kangourou des maths 2024</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/kang2024.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/kang2024.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card-with-preview">
+                    <div class="preview-box">
+                        <iframe src="docs/kang2023.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
+                    </div>
+                    <div class="doc-card">
+                        <div class="doc-info">
+                            <i class="fa-solid fa-file-pdf doc-icon"></i>
+                            <span>Kangourou des maths 2023</span>
+                        </div>
+                        <div class="doc-actions">
+                            <a href="docs/kang2023.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <a href="docs/kang2023.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
