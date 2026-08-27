@@ -122,10 +122,10 @@
         }
 
         .doc-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
 
         @media (max-width: 600px) {
             .doc-grid {
@@ -134,68 +134,95 @@
         }
 
         .doc-card-with-preview {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+}
 
         .preview-box {
-            width: 100%;
-            height: 180px;
-            background: #000;
-            overflow: hidden;
-        }
+    width: 100%;
+    height: 160px;
+    background: #000;
+    overflow: hidden;
+}
 
         .pdf-preview-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
         .doc-card {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.03);
-            transition: all 0.3s ease;
-        }
-
+    display: flex;
+    flex-direction: column; /* 2 column-ல் உள்ளே இடவசதிக்கு ஏற்ப கீழே கொண்டு வர */
+    align-items: flex-start;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    gap: 10px;
+}
         .doc-card:hover {
             background: rgba(255, 255, 255, 0.06);
         }
 
         .doc-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    word-break: break-word; /* நீண்ட உரையை அடுத்த வரிக்கு கொண்டு செல்ல */
+}
         .doc-icon {
-            font-size: 20px;
-            color: var(--gold);
-        }
+    font-size: 18px;
+    color: var(--gold);
+    flex-shrink: 0;
+}
 
         .doc-actions {
-            display: flex;
-            gap: 10px;
-        }
+    display: flex;
+    gap: 6px;
+    width: 100%;
+}
 
         .btn {
-            text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s ease;
-        }
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex: 1; /* பட்டன்களை ஒரே அளவாகப் பிரிக்க */
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 650px) {
+    .doc-grid {
+        grid-template-columns: 1fr; /* சிறிய திரைகளில் 1 column-ஆக மாற */
+    }
+    
+    .doc-card {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .doc-actions {
+        width: auto;
+    }
+
+    .btn {
+        flex: initial;
+    }
+}
 
         .view-btn {
             background: transparent;
