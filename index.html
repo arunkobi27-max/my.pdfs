@@ -122,107 +122,83 @@
         }
 
         .doc-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-}
-
-        @media (max-width: 600px) {
-            .doc-grid {
-                grid-template-columns: 1fr;
-            }
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
         .doc-card-with-preview {
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    display: flex;
-    flex-direction: column;
-}
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
 
         .preview-box {
-    width: 100%;
-    height: 160px;
-    background: #000;
-    overflow: hidden;
-}
+            width: 100%;
+            height: 160px;
+            background: #000;
+            overflow: hidden;
+        }
 
         .pdf-preview-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         .doc-card {
-    display: flex;
-    flex-direction: column; /* 2 column-ல் உள்ளே இடவசதிக்கு ஏற்ப கீழே கொண்டு வர */
-    align-items: flex-start;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    gap: 10px;
-}
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            gap: 10px;
+        }
+
         .doc-card:hover {
             background: rgba(255, 255, 255, 0.06);
         }
 
         .doc-info {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 500;
-    word-break: break-word; /* நீண்ட உரையை அடுத்த வரிக்கு கொண்டு செல்ல */
-}
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            word-break: break-word;
+        }
+
         .doc-icon {
-    font-size: 18px;
-    color: var(--gold);
-    flex-shrink: 0;
-}
+            font-size: 18px;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
 
         .doc-actions {
-    display: flex;
-    gap: 6px;
-    width: 100%;
-}
+            display: flex;
+            gap: 6px;
+            width: 100%;
+        }
 
         .btn {
-    text-decoration: none;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    flex: 1; /* பட்டன்களை ஒரே அளவாகப் பிரிக்க */
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-/* Mobile responsive adjustments */
-@media (max-width: 650px) {
-    .doc-grid {
-        grid-template-columns: 1fr; /* சிறிய திரைகளில் 1 column-ஆக மாற */
-    }
-    
-    .doc-card {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .doc-actions {
-        width: auto;
-    }
-
-    .btn {
-        flex: initial;
-    }
-}
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            flex: 1;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
         .view-btn {
             background: transparent;
@@ -248,15 +224,67 @@
             box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
         }
 
-        @media (max-width: 550px) {
-            .doc-card {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #1a1a1a;
+            margin: 3% auto;
+            padding: 0;
+            border: 1px solid var(--gold);
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0, 0, 0, 0.6);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #fff;
+            background: rgba(212, 175, 55, 0.5);
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 600px) {
+            .doc-grid {
+                grid-template-columns: 1fr;
             }
-            .doc-actions {
-                width: 100%;
-                justify-content: flex-end;
+
+            .modal-content {
+                width: 95%;
+                height: 90vh;
+                margin: 5% auto;
             }
         }
     </style>
@@ -273,12 +301,12 @@
             <p class="dob"><i class="fa-regular fa-calendar-days"></i> DOB: 11/02/2011</p>
         </div>
 
-        <!-- Section 1: Bulletins -->
+        <!-- Section 1: Bulletins Scolaires -->
         <div class="section-box">
             <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Bulletins Scolaires</h2>
             
             <div class="doc-grid">
-                <!-- 3ème -->
+                <!-- 3ème T1 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="3ème T1 Preview" class="pdf-preview-img">
@@ -289,12 +317,13 @@
                             <span>3ème - Trimestre 1</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/3eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/3eme-t1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/3eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 3ème T2 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="3ème T2 Preview" class="pdf-preview-img">
@@ -305,12 +334,13 @@
                             <span>3ème - Trimestre 2</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/3eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/3eme-t2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/3eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 3ème T3 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="3ème T3 Preview" class="pdf-preview-img">
@@ -321,13 +351,13 @@
                             <span>3ème - Trimestre 3</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/3eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/3eme-t3.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/3eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4ème -->
+                <!-- 4ème T1 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="4ème T1 Preview" class="pdf-preview-img">
@@ -338,12 +368,13 @@
                             <span>4ème - Trimestre 1</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/4eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/4eme-t1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/4eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 4ème T2 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="4ème T2 Preview" class="pdf-preview-img">
@@ -354,12 +385,13 @@
                             <span>4ème - Trimestre 2</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/4eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/4eme-t2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/4eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 4ème T3 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="4ème T3 Preview" class="pdf-preview-img">
@@ -370,13 +402,13 @@
                             <span>4ème - Trimestre 3</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/4eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/4eme-t3.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/4eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 5ème -->
+                <!-- 5ème T1 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="5ème T1 Preview" class="pdf-preview-img">
@@ -387,12 +419,13 @@
                             <span>5ème - Trimestre 1</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/5eme-t1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/5eme-t1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/5eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 5ème T2 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="5ème T2 Preview" class="pdf-preview-img">
@@ -403,12 +436,13 @@
                             <span>5ème - Trimestre 2</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/5eme-t2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/5eme-t2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/5eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 5ème T3 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/bulletin-.png" alt="5ème T3 Preview" class="pdf-preview-img">
@@ -419,7 +453,7 @@
                             <span>5ème - Trimestre 3</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/5eme-t3.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/5eme-t3.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/5eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
@@ -432,6 +466,7 @@
             <h2 class="section-title"><i class="fa-solid fa-award"></i> Certificats & Concours</h2>
 
             <div class="doc-grid">
+                <!-- ASSR 1 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/certificat-.png" alt="ASSR 1 Preview" class="pdf-preview-img">
@@ -442,12 +477,13 @@
                             <span>ASSR 1</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/assr1.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/assr1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/assr1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- ASSR 2 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/certificat-.png" alt="ASSR 2 Preview" class="pdf-preview-img">
@@ -458,12 +494,13 @@
                             <span>ASSR 2</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/assr2.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/assr2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/assr2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- PIX -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/certificat-.png" alt="PIX Preview" class="pdf-preview-img">
@@ -474,12 +511,13 @@
                             <span>Certificat PIX</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/pix.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/pix.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/pix.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Kangourou 2026 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/certificat-.png" alt="Kangourou 2026 Preview" class="pdf-preview-img">
@@ -490,12 +528,13 @@
                             <span>Kangourou des maths 2026</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/kang2026.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/kang2026.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/kang2026.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Kangourou 2025 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/certificat-.png" alt="Kangourou 2025 Preview" class="pdf-preview-img">
@@ -506,12 +545,13 @@
                             <span>Kangourou des maths 2025</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/kang2025.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/kang2025.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/kang2025.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Kangourou 2024 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/certificat-.png" alt="Kangourou 2024 Preview" class="pdf-preview-img">
@@ -522,12 +562,13 @@
                             <span>Kangourou des maths 2024</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/kang2024.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/kang2024.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/kang2024.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- Kangourou 2023 -->
                 <div class="doc-card-with-preview">
                     <div class="preview-box">
                         <img src="doc/certificat-.png" alt="Kangourou 2023 Preview" class="pdf-preview-img">
@@ -538,7 +579,7 @@
                             <span>Kangourou des maths 2023</span>
                         </div>
                         <div class="doc-actions">
-                            <a href="doc/kang2023.pdf" target="_blank" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</a>
+                            <button onclick="openModal('doc/kang2023.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
                             <a href="doc/kang2023.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
                         </div>
                     </div>
@@ -548,15 +589,14 @@
     </div>
 
     <!-- PDF Modal Popup -->
-<div id="pdfModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <iframe id="pdfFrame" src="" width="100%" height="100%" frameborder="0"></iframe>
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <iframe id="pdfFrame" src="" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
     </div>
-</div>
 
     <script>
-        // Function to Open Modal with PDF
         function openModal(pdfUrl) {
             const modal = document.getElementById("pdfModal");
             const iframe = document.getElementById("pdfFrame");
@@ -564,15 +604,13 @@
             modal.style.display = "block";
         }
 
-        // Function to Close Modal
         function closeModal() {
             const modal = document.getElementById("pdfModal");
             const iframe = document.getElementById("pdfFrame");
             modal.style.display = "none";
-            iframe.src = ""; // Clear source
+            iframe.src = "";
         }
 
-        // Close Modal when clicking outside the content
         window.onclick = function(event) {
             const modal = document.getElementById("pdfModal");
             if (event.target === modal) {
