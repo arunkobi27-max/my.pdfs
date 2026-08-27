@@ -547,5 +547,39 @@
         </div>
     </div>
 
+    <!-- PDF Modal Popup -->
+<div id="pdfModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <iframe id="pdfFrame" src="" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+</div>
+
+    <script>
+        // Function to Open Modal with PDF
+        function openModal(pdfUrl) {
+            const modal = document.getElementById("pdfModal");
+            const iframe = document.getElementById("pdfFrame");
+            iframe.src = pdfUrl;
+            modal.style.display = "block";
+        }
+
+        // Function to Close Modal
+        function closeModal() {
+            const modal = document.getElementById("pdfModal");
+            const iframe = document.getElementById("pdfFrame");
+            modal.style.display = "none";
+            iframe.src = ""; // Clear source
+        }
+
+        // Close Modal when clicking outside the content
+        window.onclick = function(event) {
+            const modal = document.getElementById("pdfModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+    </script>
+
 </body>
 </html>
