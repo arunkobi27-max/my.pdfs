@@ -41,7 +41,7 @@
 
         .container {
             width: 100%;
-            max-width: 700px;
+            max-width: 750px;
             background: var(--card-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -180,15 +180,15 @@
 
         .doc-actions {
             display: flex;
-            gap: 6px;
+            gap: 5px;
             width: 100%;
         }
 
         .btn {
             text-decoration: none;
-            padding: 6px 10px;
+            padding: 6px 8px;
             border-radius: 6px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
@@ -221,7 +221,19 @@
         .download-btn:hover {
             background: var(--gold-light);
             border-color: var(--gold-light);
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+        }
+
+        .share-btn {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-color);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .share-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            color: var(--gold);
         }
 
         /* Modal Styles */
@@ -275,6 +287,33 @@
             background: rgba(212, 175, 55, 0.5);
         }
 
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 220px;
+            background-color: var(--gold);
+            color: #0b0d10;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px 16px;
+            position: fixed;
+            z-index: 2000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 40px;
+        }
+
         /* Mobile responsive adjustments */
         @media (max-width: 600px) {
             .doc-grid {
@@ -318,7 +357,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/3eme-t1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/3eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/3eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('3ème - Trimestre 1', 'doc/3eme-t1.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -335,7 +375,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/3eme-t2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/3eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/3eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('3ème - Trimestre 2', 'doc/3eme-t2.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -352,7 +393,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/3eme-t3.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/3eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/3eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('3ème - Trimestre 3', 'doc/3eme-t3.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -369,7 +411,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/4eme-t1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/4eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/4eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('4ème - Trimestre 1', 'doc/4eme-t1.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -386,7 +429,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/4eme-t2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/4eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/4eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('4ème - Trimestre 2', 'doc/4eme-t2.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -403,7 +447,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/4eme-t3.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/4eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/4eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('4ème - Trimestre 3', 'doc/4eme-t3.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -420,7 +465,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/5eme-t1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/5eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/5eme-t1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('5ème - Trimestre 1', 'doc/5eme-t1.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -437,7 +483,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/5eme-t2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/5eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/5eme-t2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('5ème - Trimestre 2', 'doc/5eme-t2.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -454,7 +501,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/5eme-t3.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/5eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/5eme-t3.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('5ème - Trimestre 3', 'doc/5eme-t3.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -478,7 +526,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/assr1.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/assr1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/assr1.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('ASSR 1', 'doc/assr1.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -495,7 +544,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/assr2.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/assr2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/assr2.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('ASSR 2', 'doc/assr2.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -512,7 +562,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/pix.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/pix.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/pix.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('Certificat PIX', 'doc/pix.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -529,7 +580,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/kang2026.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/kang2026.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/kang2026.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('Kangourou des maths 2026', 'doc/kang2026.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -546,7 +598,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/kang2025.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/kang2025.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/kang2025.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('Kangourou des maths 2025', 'doc/kang2025.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -563,7 +616,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/kang2024.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/kang2024.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/kang2024.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('Kangourou des maths 2024', 'doc/kang2024.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -580,7 +634,8 @@
                         </div>
                         <div class="doc-actions">
                             <button onclick="openModal('doc/kang2023.pdf')" class="btn view-btn"><i class="fa-solid fa-eye"></i> View</button>
-                            <a href="doc/kang2023.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Download</a>
+                            <a href="doc/kang2023.pdf" download class="btn download-btn"><i class="fa-solid fa-download"></i> Get</a>
+                            <button onclick="shareDoc('Kangourou des maths 2023', 'doc/kang2023.pdf')" class="btn share-btn"><i class="fa-solid fa-share-nodes"></i> Share</button>
                         </div>
                     </div>
                 </div>
@@ -596,7 +651,11 @@
         </div>
     </div>
 
+    <!-- Toast Notification Element -->
+    <div id="toast"><i class="fa-solid fa-check-circle"></i> Link Copied to Clipboard!</div>
+
     <script>
+        // Modal functions
         function openModal(pdfUrl) {
             const modal = document.getElementById("pdfModal");
             const iframe = document.getElementById("pdfFrame");
@@ -617,6 +676,38 @@
                 closeModal();
             }
         };
+
+        // Share & Copy Link Function
+        function shareDoc(title, path) {
+            const fullUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + path;
+
+            if (navigator.share) {
+                // Mobile native share menu
+                navigator.share({
+                    title: title,
+                    text: 'Check out this document: ' + title,
+                    url: fullUrl
+                }).catch((err) => {
+                    console.log('Share canceled/failed:', err);
+                });
+            } else {
+                // Copy link to clipboard for Desktop browsers
+                navigator.clipboard.writeText(fullUrl).then(() => {
+                    showToast();
+                }).catch(err => {
+                    console.error('Could not copy text: ', err);
+                });
+            }
+        }
+
+        // Show Toast Notification
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(function() { 
+                toast.className = toast.className.replace("show", ""); 
+            }, 3000);
+        }
     </script>
 
 </body>
